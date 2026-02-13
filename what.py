@@ -4,8 +4,8 @@ from datetime import datetime
 import time
 
 # Use environment variables in production; fall back to placeholders for local testing
-account_sid = os.getenv("TWILIO_ACCOUNT_SID", "AC6e7e99b5789cb9ec8beab0dfa166ba64")
-account_token = os.getenv("TWILIO_AUTH_TOKEN", "29d43395d31919506ca6bc2a8d50f074")
+account_sid = os.getenv("TWILIO_ACCOUNT_SID", "")
+account_token = os.getenv("TWILIO_AUTH_TOKEN", "")
 
 client = Client(account_sid, account_token)
 
@@ -44,4 +44,5 @@ if __name__ == "__main__":
         print(f"Message scheduled to be sent to {name} at {scheduled_datetime}.")
         time.sleep(delay_seconds)
         send_whatsapp_message(recipient_number, message_body)
+
 
